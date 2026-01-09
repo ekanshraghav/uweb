@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Sitaram Denims India Limited</title>
+    <!-- **CHANGED: Aligned theme with homepage** -->
+    <!-- Removed old color palette (denim, gold, primary) and added homepage's color variables -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* **CHANGED: Applied Homepage Color Variables** */
+                        'bubbles': '#E5F3FD',
+                        'bubbles-dark': '#C4E1F8',
+                        'accent-blue': '#1E88E5',
+                        'accent-blue-dark': '#0D47A1',
+                        'text-primary': '#1E293B',
+                        'text-secondary': '#475569',
+                        'border-light': '#CBD5E1',
+                        'success-green': '#10B981',
+                        'warning-gold': '#F59E0B',
+                        'dark-section': '#0F172A',
+                        'dark-section-light': '#1E293B',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* **CHANGED: Updated animations to match homepage** */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* **CHANGED: Standardized reveal animation class name with homepage** */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .leader-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .leader-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            /* **CHANGED: Updated border color to accent-blue** */
+            border-color: #1E88E5;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.active {
+            max-height: 400px;
+        }
+        /* **CHANGED: Updated value-icon to use new colors** */
+        .value-icon {
+            background: linear-gradient(135deg, rgba(30, 136, 229, 0.1), rgba(30, 136, 229, 0.2));
+        }
+        .value-icon:hover {
+            background: linear-gradient(135deg, #1E88E5, #0D47A1);
+        }
+        /* **ADDED: Matched homepage's compact spacing** */
+        .section-padding {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem;
+            }
+        }
+        /* **ADDED: Accessibility focus styles from homepage** */
+        :focus-visible {
+            outline: 2px solid #1E88E5;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<!-- **CHANGED: Applied homepage body background and text color** -->
+<body class="font-sans bg-bubbles text-text-primary">
+    <!-- Navigation -->
+    <!-- **CHANGED: Completely replaced to match homepage header exactly** -->
+    <header class="bg-bubbles shadow-sm border-b border-border-light sticky top-0 z-50" role="banner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl lg:text-3xl font-bold text-text-primary hover:text-accent-blue transition-colors">
+                        <span class="text-accent-blue">Sitaram</span> Denims
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation - Right Aligned -->
+                <nav class="hidden lg:flex items-center space-x-8 ml-auto" aria-label="Main navigation">
+                    <a href="index.html" class="text-text-secondary hover:text-accent-blue font-medium transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="about.html" class="text-text-secondary hover:text-accent-blue font-medium transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="capabilities.html" class="text-text-secondary hover:text-accent-blue font-medium transition-colors duration-300 relative group">
+                        Capabilities
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="products.html" class="text-text-secondary hover:text-accent-blue font-medium transition-colors duration-300 relative group">
+                        Products
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="sustainability.html" class="text-text-secondary hover:text-accent-blue font-medium transition-colors duration-300 relative group">
+                        Sustainability
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="investors.html" class="text-text-secondary hover:text-accent-blue font-medium transition-colors duration-300 relative group">
+                        Investors
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="text-text-secondary hover:text-accent-blue font-medium transition-colors duration-300 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 text-text-secondary hover:text-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden bg-bubbles shadow-lg rounded-b-lg" role="navigation" aria-label="Mobile navigation">
+                <div class="py-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 text-text-primary font-semibold hover:bg-bubbles-dark transition-colors border-l-4 border-accent-blue focus:bg-bubbles-dark">Home</a>
+                    <a href="about.html" class="block px-4 py-3 text-text-secondary hover:bg-bubbles-dark transition-colors border-l-4 border-transparent hover:border-accent-blue focus:bg-bubbles-dark">About</a>
+                    <a href="capabilities.html" class="block px-4 py-3 text-text-secondary hover:bg-bubbles-dark transition-colors border-l-4 border-transparent hover:border-accent-blue focus:bg-bubbles-dark">Capabilities</a>
+                    <a href="products.html" class="block px-4 py-3 text-text-secondary hover:bg-bubbles-dark transition-colors border-l-4 border-transparent hover:border-accent-blue focus:bg-bubbles-dark">Products</a>
+                    <a href="sustainability.html" class="block px-4 py-3 text-text-secondary hover:bg-bubbles-dark transition-colors border-l-4 border-transparent hover:border-accent-blue focus:bg-bubbles-dark">Sustainability</a>
+                    <a href="investors.html" class="block px-4 py-3 text-text-secondary hover:bg-bubbles-dark transition-colors border-l-4 border-transparent hover:border-accent-blue focus:bg-bubbles-dark">Investors</a>
+                    <a href="contact.html" class="block px-4 py-3 text-text-secondary hover:bg-bubbles-dark transition-colors border-l-4 border-transparent hover:border-accent-blue focus:bg-bubbles-dark">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <!-- **CHANGED: Updated with correct founding year and company name** -->
+        <section class="parallax min-h-[90vh] flex items-center justify-center relative section-padding"
+                 style="background-image: linear-gradient(rgba(15,23,42,0.85), rgba(30,41,59,0.7)), 
+                        url('https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+            <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-10"></div>
+            <div class="text-center text-white max-w-5xl mx-auto px-4 relative z-10">
+                <div class="reveal mb-6">
+                    <span class="inline-block px-4 py-2 bg-accent-blue/20 text-blue-300 text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                        OUR LEGACY
+                    </span>
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-7xl font-serif font-bold mb-6 reveal leading-tight">
+                    Professional Excellence<br>
+                    <span class="text-blue-400">Since 1987</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 reveal text-gray-200">Sitaram Denims India Limited</p>
+                <p class="text-lg mb-12 max-w-2xl mx-auto reveal text-gray-300">
+                    A professionally managed, progressive textile manufacturing company with core business interests in fabric manufacturing. Promoted and managed by qualified textile engineers with a strong legacy in the industry.
+                </p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <!-- **CHANGED: Updated with real company history, founding year, and facts** -->
+        <section class="section-padding bg-bubbles">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <span class="inline-block px-4 py-2 bg-accent-blue/10 text-accent-blue text-sm font-semibold rounded-full mb-6">
+                            OUR STORY
+                        </span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-primary mb-8 leading-tight">
+                            Heritage of<br>
+                            <span class="text-accent-blue">Technical Mastery</span>
+                        </h2>
+                        <p class="text-lg mb-8 text-text-secondary leading-relaxed">
+                            <strong>Sitaram Denims India Limited</strong> was established in <strong>1987</strong> in Bhilwara, Rajasthan, as a professionally managed enterprise promoted by qualified textile engineers[citation:3]. The founders brought with them a strong legacy of operating textile enterprises, forming what is now known as the Sitaram Group[citation:1].
+                        </p>
+                        <p class="text-lg mb-8 text-text-secondary leading-relaxed">
+                            The company has grown into a vertically integrated textile manufacturer, managing the entire value chain from yarn twisting to weaving and packing finished fabrics[citation:1]. We specialize in <strong>cotton, polyester, viscose, denim, linen, and other allied fabrics</strong>, primarily for men's wear under our brand names[citation:1].
+                        </p>
+                        <p class="text-lg mb-10 text-text-secondary leading-relaxed">
+                            Today, with over <strong>39 years of industry experience</strong>, we operate from advanced facilities in Rajasthan, exporting to more than 10 countries and maintaining a production capacity of over <strong>35 million meters annually</strong>.
+                        </p>
+                    </div>
+                    <div class="reveal relative">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1567401893416-8f2d1ce2dcc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Modern textile manufacturing facility of Sitaram Denims" 
+                                 class="w-full h-[500px] object-cover transform hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-section/30 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-serif font-bold mb-2">Vertically Integrated Manufacturing</h3>
+                                <p class="text-gray-200">Complete control from yarn to finished fabric</p>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent-blue/10 rounded-full blur-3xl" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission -->
+        <!-- **CHANGED: Updated background to use dark-section colors and revised content** -->
+        <section class="section-padding bg-gradient-to-br from-dark-section via-dark-section-light to-dark-section text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-5"></div>
+            <div class="max-w-7xl mx-auto px-4 relative z-10">
+                <div class="text-center mb-16 reveal">
+                    <span class="inline-block px-4 py-2 bg-accent-blue/20 text-blue-300 text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                        OUR GUIDING PRINCIPLES
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-center mb-6">Vision & Mission</h2>
+                    <p class="text-xl max-w-3xl mx-auto text-gray-300">The foundational beliefs that drive our global textile operations</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-12 hover-lift reveal">
+                        <div class="w-24 h-24 bg-gradient-to-br from-accent-blue to-accent-blue-dark rounded-full flex items-center justify-center mx-auto mb-8">
+                            <i class="fas fa-eye text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold text-center mb-6">Our Vision</h3>
+                        <p class="text-lg text-center text-gray-300 leading-relaxed">
+                            To be the global benchmark in sustainable and innovative fabric manufacturing. We aim to be recognized not just for the quality of our Polyester-Viscose, Cotton, and Denim fabrics, but for our commitment to process-driven excellence and technological leadership in the textile industry.
+                        </p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-12 hover-lift reveal">
+                        <div class="w-24 h-24 bg-gradient-to-br from-accent-blue to-accent-blue-dark rounded-full flex items-center justify-center mx-auto mb-8">
+                            <i class="fas fa-bullseye text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold text-center mb-6">Our Mission</h3>
+                        <p class="text-lg text-center text-gray-300 leading-relaxed">
+                            To consistently deliver superior textile products through continuous technological upgradation and sustainable practices. We are committed to fostering a culture of safety, integrity, and operational excellence, ensuring that every meter of fabric meets international standards for quality and performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Brands Section -->
+        <!-- **NEW SECTION: Added with real brand information from search results** -->
+        <section class="section-padding bg-bubbles-dark">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-20 reveal">
+                    <span class="inline-block px-4 py-2 bg-accent-blue/10 text-accent-blue text-sm font-semibold rounded-full mb-4">
+                        OUR BRANDS
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-text-primary">Trusted Fabric Brands</h2>
+                    <p class="text-xl max-w-3xl mx-auto text-text-secondary">Quality textiles for men's wear under our distinguished brand names</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-bubbles p-8 rounded-2xl shadow-lg hover-lift border border-border-light text-center reveal">
+                        <div class="w-20 h-20 bg-gradient-to-br from-accent-blue to-accent-blue-dark rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-star text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4 text-text-primary">Sitaram</h3>
+                        <p class="text-text-secondary">Our flagship brand, representing decades of manufacturing excellence and reliability in premium fabrics.</p>
+                    </div>
+                    <div class="bg-bubbles p-8 rounded-2xl shadow-lg hover-lift border border-border-light text-center reveal">
+                        <div class="w-20 h-20 bg-gradient-to-br from-success-green to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-crown text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4 text-text-primary">Stardom</h3>
+                        <p class="text-text-secondary">Premium range focusing on innovative weaves and contemporary designs for the fashion-forward market.</p>
+                    </div>
+                    <div class="bg-bubbles p-8 rounded-2xl shadow-lg hover-lift border border-border-light text-center reveal">
+                        <div class="w-20 h-20 bg-gradient-to-br from-warning-gold to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-arrow-up text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4 text-text-primary">Swiss Arrow</h3>
+                        <p class="text-text-secondary">Symbolizing precision and quality, this brand offers fabrics with exceptional finish and durability.</p>
+                    </div>
+                </div>
+                <p class="text-center text-text-secondary mt-8 text-sm">
+                    * All brands specialize in cotton, polyester, viscose, denim, linen and other allied fabrics for men's wear[citation:1].
+                </p>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <!-- **CHANGED: Completely replaced with real Board of Directors information** -->
+        <section class="section-padding bg-gradient-to-br from-dark-section via-dark-section-light to-dark-section text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-5"></div>
+            <div class="max-w-7xl mx-auto px-4 relative z-10">
+                <div class="text-center mb-20 reveal">
+                    <span class="inline-block px-4 py-2 bg-accent-blue/20 text-blue-300 text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                        OUR LEADERSHIP
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-center mb-6">Board of Directors</h2>
+                    <p class="text-xl max-w-3xl mx-auto text-gray-300">Experienced professionals guiding our journey of growth and innovation</p>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- Chairman -->
+                    <article class="leader-card rounded-2xl p-8 reveal">
+                        <div class="grid md:grid-cols-3 gap-8 items-center">
+                            <div class="md:col-span-1">
+                                <div class="relative rounded-xl overflow-hidden h-64">
+                                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Mr. Jagdish Prasad Nuwal, Chairman" 
+                                         class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-dark-section/50 to-transparent"></div>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2">
+                                <div class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-2">Chairman cum Whole-time Director</div>
+                                <h3 class="text-3xl font-serif font-bold mb-4">Mr. Jagdish Prasad Nuwal</h3>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    A holder of Diploma in Civil & Rural Engineering, Mr. Nuwal is the <strong>founder Member and Director</strong> of the company and has been associated with it since its incorporation in September 1987[citation:3]. With an overall experience of around <strong>52 years</strong>, he provides strategic inputs for better materials, new designs and development of our products[citation:3].
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Managing Director -->
+                    <article class="leader-card rounded-2xl p-8 reveal">
+                        <div class="grid md:grid-cols-3 gap-8 items-center">
+                            <div class="md:col-span-2">
+                                <div class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-2">Managing Director</div>
+                                <h3 class="text-3xl font-serif font-bold mb-4">Mr. Anil Kumar Nuwal</h3>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    Holds a Bachelor Degree in Science and joined the Company in <strong>1988</strong>[citation:3]. With over <strong>28 years of experience</strong> in textile manufacturing, he has been a key figure in promoting the business to its current status[citation:3]. His main role is to strategise new business plans with industry trends and consumer preference in mind, and he has led all technical advancements in products and manufacturing methods[citation:3].
+                                </p>
+                            </div>
+                            <div class="md:col-span-1">
+                                <div class="relative rounded-xl overflow-hidden h-64">
+                                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Mr. Anil Kumar Nuwal, Managing Director" 
+                                         class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-dark-section/50 to-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Whole-time Director -->
+                    <article class="leader-card rounded-2xl p-8 reveal">
+                        <div class="grid md:grid-cols-3 gap-8 items-center">
+                            <div class="md:col-span-1">
+                                <div class="relative rounded-xl overflow-hidden h-64">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Mr. Madhu Sudan Nuwal, Whole-time Director" 
+                                         class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-dark-section/50 to-transparent"></div>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2">
+                                <div class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-2">Whole-time Director</div>
+                                <h3 class="text-3xl font-serif font-bold mb-4">Mr. Madhu Sudan Nuwal</h3>
+                                <p class="text-gray-300 mb-4 leading-relaxed">
+                                    Holds a <strong>Bachelors in Textile Engineering</strong> and has been associated with the Company since <strong>1993</strong>[citation:3]. He is responsible for internal operations and staff support services along with sales and purchase activity of the company[citation:3].
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Independent Directors -->
+                <div class="mt-12">
+                    <h3 class="text-2xl font-serif font-bold text-center mb-8 text-gray-300">Independent Directors</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white/5 rounded-xl p-6 reveal">
+                            <h4 class="text-xl font-bold mb-2">Mr. Archit Laddha</h4>
+                            <p class="text-gray-400 text-sm mb-2">Non-Executive Independent Director</p>
+                            <p class="text-gray-300">Holder of Bachelors degree in Technology in civil from IIT, Bombay. Appointed as an Independent Director w.e.f. January 27, 2016[citation:3].</p>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-6 reveal">
+                            <h4 class="text-xl font-bold mb-2">Mrs. Surabhi Choudhary</h4>
+                            <p class="text-gray-400 text-sm mb-2">Non-Executive Independent Director</p>
+                            <p class="text-gray-300">Holds a Bachelors Degree in Textile Engineering from the University of Rajasthan. Appointed as an Independent Director on January 27, 2016[citation:3].</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <!-- **CHANGED: Updated colors and refined content** -->
+        <section class="section-padding bg-bubbles">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-20 reveal">
+                    <span class="inline-block px-4 py-2 bg-accent-blue/10 text-accent-blue text-sm font-semibold rounded-full mb-4">
+                        OUR CORE VALUES
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-text-primary">The Principles That Guide Us</h2>
+                    <p class="text-xl max-w-3xl mx-auto text-text-secondary">Foundational beliefs that shape our culture and drive our success</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-bubbles/70 p-8 rounded-2xl shadow-xl hover-lift border border-border-light reveal">
+                        <div class="w-20 h-20 value-icon rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-400">
+                            <i class="fas fa-medal text-3xl text-accent-blue"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4 text-text-primary">Quality Excellence</h3>
+                        <p class="text-text-secondary text-center">Uncompromising standards in every yard of fabric, ensuring consistency and durability that meets global benchmarks through our ASQC Four-Point Grading System.</p>
+                    </div>
+                    <div class="bg-bubbles/70 p-8 rounded-2xl shadow-xl hover-lift border border-border-light reveal">
+                        <div class="w-20 h-20 value-icon rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-400">
+                            <i class="fas fa-leaf text-3xl text-accent-blue"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4 text-text-primary">Sustainable Responsibility</h3>
+                        <p class="text-text-secondary text-center">Commitment to environmental stewardship through GOTS & GRS certified processes, solar power initiatives, and responsible manufacturing practices[citation:2].</p>
+                    </div>
+                    <div class="bg-bubbles/70 p-8 rounded-2xl shadow-xl hover-lift border border-border-light reveal">
+                        <div class="w-20 h-20 value-icon rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-400">
+                            <i class="fas fa-bolt text-3xl text-accent-blue"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4 text-text-primary">Innovation Driven</h3>
+                        <p class="text-text-secondary text-center">Continuous improvement through SAP ERP integration, research, and adoption of world-class technology from Italy, Japan, and Germany.</p>
+                    </div>
+                    <div class="bg-bubbles/70 p-8 rounded-2xl shadow-xl hover-lift border border-border-light reveal">
+                        <div class="w-20 h-20 value-icon rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-400">
+                            <i class="fas fa-handshake text-3xl text-accent-blue"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-center mb-4 text-text-primary">Global Partnership</h3>
+                        <p class="text-text-secondary text-center">Building lasting relationships with brands in over 10 countries through reliability, transparency, and a shared vision for growth and excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Presence -->
+        <!-- **NEW SECTION: Added to highlight international reach** -->
+        <section class="section-padding bg-gradient-to-br from-bubbles-dark to-bubbles">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16 reveal">
+                    <span class="inline-block px-4 py-2 bg-accent-blue/10 text-accent-blue text-sm font-semibold rounded-full mb-4">
+                        GLOBAL REACH
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-text-primary">Manufacturing for the World</h2>
+                    <p class="text-xl max-w-3xl mx-auto text-text-secondary">From our roots in Rajasthan to customers across continents</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <div class="bg-white rounded-2xl p-8 shadow-xl border border-border-light">
+                            <h3 class="text-2xl font-serif font-bold text-text-primary mb-6">Our Manufacturing Footprint</h3>
+                            <ul class="space-y-4 text-text-secondary">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-industry text-accent-blue mt-1"></i>
+                                    <span><strong>Registered Office:</strong> 48, Main Sector, Shastri Nagar, Bhilwara – 311001, Rajasthan[citation:1]</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-building text-accent-blue mt-1"></i>
+                                    <span><strong>City Office:</strong> F-226 & 227, RIICO 4th Phase, Pur Road, Bhilwara – 311001[citation:1]</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-tractor text-accent-blue mt-1"></i>
+                                    <span><strong>Plant & Billing Address:</strong> Aaraji No. 950 & 953, Danta Nilawari, Ajmer Road, Banera, Bhilwara – 311401[citation:1][citation:2]</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-globe-asia text-accent-blue mt-1"></i>
+                                    <span><strong>Export Markets:</strong> Currently exporting to <strong>10+ countries</strong> with strategic focus on expanding into additional global markets</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-ruler-combined text-accent-blue mt-1"></i>
+                                    <span><strong>Production Capacity:</strong> <strong>35 million meters</strong> annual production capacity</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="reveal">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Global textile shipping and logistics" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-section/50 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-serif font-bold mb-2">Connecting Markets</h3>
+                                <p class="text-gray-200">Delivering quality fabrics to international partners</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <!-- **CHANGED: Updated background and button colors to match theme** -->
+        <section class="section-padding bg-gradient-to-br from-dark-section via-dark-section-light to-dark-section text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-10"></div>
+            <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+                <div class="reveal mb-12">
+                    <span class="inline-block px-4 py-2 bg-accent-blue/20 text-blue-300 text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                        JOIN OUR JOURNEY
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif mb-8">Partner With a Legacy of Excellence</h2>
+                    <p class="text-xl mb-16 max-w-3xl mx-auto text-gray-300">
+                        Join the global brands that trust Sitaram Denims India Limited for their premium fabric requirements. 
+                        Experience the difference that professional management and four decades of textile engineering expertise makes.
+                    </p>
+                </div>
+                <div class="space-x-4 reveal">
+                    <a href="contact.html" class="inline-block bg-accent-blue hover:bg-accent-blue-dark text-white px-10 py-5 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 uppercase tracking-wider hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue">
+                        Start Partnership <i class="fas fa-handshake ml-3"></i>
+                    </a>
+                    <a href="capabilities.html" class="inline-block border-2 border-white text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-white hover:text-text-primary transition-all duration-300 uppercase tracking-wider hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white">
+                        Explore Capabilities <i class="fas fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- **CHANGED: Completely replaced with homepage footer for consistency** -->
+    <footer class="bg-dark-section text-white" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <div class="lg:col-span-1">
+                    <div class="text-2xl font-bold mb-4">
+                        <span class="text-accent-blue">Sitaram</span> Denims
+                    </div>
+                    <p class="text-gray-400 mb-6">Weaving excellence since 1987. A professionally managed, growth-oriented textile manufacturer exporting to over 10 countries.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-accent-blue">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">About Us</a></li>
+                        <li><a href="capabilities.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">Capabilities</a></li>
+                        <li><a href="sustainability.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">Sustainability</a></li>
+                        <li><a href="investors.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">Investors</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-accent-blue">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">PV Blends</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">Organic Cotton</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white">Denim & Bottomwear</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-accent-blue">Contact</h3>
+                    <div class="space-y-4">
+                        <div class="text-gray-400">
+                            <h4 class="text-white text-sm font-medium mb-1">Registered Office</h4>
+                            <p class="text-sm">48, Main Sector, Shastri Nagar,<br>
+                            Bhilwara – 311001,<br>
+                            Rajasthan, India</p>
+                        </div>
+                        <div class="text-gray-400">
+                            <h4 class="text-white text-sm font-medium mb-1">Plant Address</h4>
+                            <p class="text-sm">Aaraji No. 950 & 953, Danta Nilawari,<br>
+                            Ajmer Road, Banera,<br>
+                            Bhilwara – 311401</p>
+                        </div>
+                        <div class="text-gray-400">
+                            <p class="flex items-center gap-2"><i class="fas fa-phone text-accent-blue"></i> +91-1482-260385 / 86[citation:1]</p>
+                            <p class="flex items-center gap-2 mt-2"><i class="fas fa-envelope text-accent-blue"></i> info@sitaramindia.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 Sitaram Denims India Limited. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors focus:outline-none focus:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors focus:outline-none focus:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors focus:outline-none focus:text-white">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- **CHANGED: Updated JavaScript to match homepage's functionality exactly** -->
+    <script>
+        // Mobile menu toggle with improved accessibility (from homepage)
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('active');
+            
+            // Toggle icon
+            const icon = this.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.className = 'fas fa-times text-xl';
+            } else {
+                icon.className = 'fas fa-bars text-xl';
+            }
+        });
+
+        // Close mobile menu when clicking outside (from homepage)
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+            }
+        });
+
+        // Scroll reveal animation (from homepage)
+        function revealElements() {
+            const elements = document.querySelectorAll('.reveal');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize animations when page loads (from homepage)
+        window.addEventListener('scroll', revealElements);
+        window.addEventListener('load', function() {
+            revealElements();
+
+            // Smooth scrolling for anchor links (from homepage)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Respect prefers-reduced-motion (from homepage)
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (mediaQuery.matches) {
+            const animatedElements = document.querySelectorAll('.animate-scroll, .animate-fade-in, .animate-slide-up, .animate-pulse-slow');
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

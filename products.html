@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Sitaram Denim India Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'denim': '#050A18',
+                        'navy': '#050A18',
+                        'gold': '#D4AF37',
+                        'bronze': '#CD7F32',
+                        'primary': '#BAFF39',
+                        'secondary': '#6E6E6E',
+                        'pastel-purple': '#C5ADC5',
+                        'light-blue': '#B2B5E0'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .gradient-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #CD7F32 100%);
+        }
+        .gradient-denim {
+            background: linear-gradient(135deg, #050A18 0%, #1e3a5c 100%);
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #BAFF39 0%, #9ED322 100%);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.active {
+            max-height: 400px;
+        }
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .spec-badge {
+            background: rgba(186, 255, 57, 0.15);
+            border: 1px solid rgba(186, 255, 57, 0.3);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, rgba(201, 168, 88, 0.1), rgba(184, 148, 70, 0.2));
+        }
+        .feature-icon:hover {
+            background: linear-gradient(135deg, #D4AF37, #CD7F32);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/98 backdrop-blur-md z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-serif font-bold text-denim flex items-center gap-2">
+                        <i class="fas fa-industry text-primary"></i>
+                        <span>Sitaram Denim</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="capabilities.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Capabilities
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="products.html" class="text-denim font-semibold hover:text-primary transition-colors duration-300 relative group">
+                        Products
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="sustainability.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Sustainability
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="investors.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Investors
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-denim p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg rounded-b-lg">
+                <div class="py-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Home</a>
+                    <a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">About</a>
+                    <a href="capabilities.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Capabilities</a>
+                    <a href="products.html" class="block px-4 py-3 text-denim font-semibold hover:bg-gray-50 transition-colors border-l-4 border-primary">Products</a>
+                    <a href="sustainability.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Sustainability</a>
+                    <a href="investors.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Investors</a>
+                    <a href="contact.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="parallax min-h-screen flex items-center justify-center relative"
+             style="background-image: linear-gradient(rgba(5,10,24,0.85), rgba(30,58,95,0.7)), 
+                    url('https://images.unsplash.com/photo-1620799139509-3a6b8a1a8b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+        <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-10"></div>
+        <div class="text-center text-white max-w-5xl mx-auto px-4 relative z-10">
+            <div class="reveal mb-6">
+                <span class="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                    OUR PORTFOLIO
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 reveal leading-tight">
+                Premium Textile<br>
+                <span class="text-primary">Collections</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 reveal text-gray-200">Innovative fabrics for modern fashion and industrial applications</p>
+            <p class="text-lg mb-12 max-w-2xl mx-auto reveal text-gray-300">
+                Discover our comprehensive range of premium fabrics, from classic weaves to cutting-edge sustainable blends, 
+                crafted to meet the evolving needs of global fashion brands and industries.
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-denim mb-6">Our Product Categories</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-600">Diverse portfolio serving various market segments from premium fashion to industrial applications</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-layer-group text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-denim">Yarn & Raw Materials</h3>
+                    <p class="text-gray-600">High-quality yarns from finest cotton-growing regions and sustainable fiber producers</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-warehouse text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-denim">Woven Fabrics</h3>
+                    <p class="text-gray-600">Premium woven textiles crafted with precision for durability and elegance</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tshirt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-denim">Finished Fabrics</h3>
+                    <p class="text-gray-600">Ready-to-use fabrics with superior finishing meeting global quality standards</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-denim">Sustainable Fabrics</h3>
+                    <p class="text-gray-600">Eco-friendly blends with organic cotton, recycled fibers, and sustainable processes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yarn & Raw Materials -->
+    <section class="py-24 gradient-denim text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                    RAW MATERIALS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6">Yarn & Raw Materials</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-300">High-quality yarns sourced from the finest cotton-growing regions and sustainable fiber producers</p>
+            </div>
+            
+            <div class="product-card rounded-2xl p-8 md:p-12 reveal">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:col-span-1">
+                        <div class="relative rounded-xl overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1574258495973-3f1b78c0b44b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Yarn Production" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-denim/50 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full backdrop-blur-sm">
+                                    Premium Quality Yarns
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-1">
+                        <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6 flex items-center gap-3">
+                            <div class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center">
+                                <i class="fas fa-layer-group text-primary text-xl"></i>
+                            </div>
+                            High-Quality Yarns Collection
+                        </h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed text-lg">
+                            We offer a wide range of counts and compositions to meet diverse requirements, from combed cotton for premium fabrics to sustainable blends for eco-conscious applications.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-serif font-bold mb-4 text-primary">Combed Cotton</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                        <span class="text-gray-300">Ne 20–120 | Ring & Compact spun</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                        <span class="text-gray-300">Carded Cotton options</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                        <span class="text-gray-300">Ne 10–40 | Cost-effective options</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-serif font-bold mb-4 text-primary">Blended Yarns</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                        <span class="text-gray-300">PC, CVC, TC | Various ratios</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                        <span class="text-gray-300">Sustainable Fiber blends</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                        <span class="text-gray-300">Organic, BCI, Recycled options</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Woven Fabrics -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+                    WOVEN COLLECTIONS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-denim">Premium Woven Fabrics</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-600">Crafted with precision for durability and elegance, suitable for fashion, home textiles, and industrial applications</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-th text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-center mb-4 text-denim">Plain Weaves</h3>
+                    <p class="text-gray-600 text-center mb-4">Versatile basic weaves for various applications</p>
+                    <div class="text-center">
+                        <div class="inline-block spec-badge px-4 py-2 rounded-full text-sm font-medium text-gray-700">
+                            Cotton, Polyester, Blends | 60–300 GSM
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Lightweight to heavyweight options</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Excellent durability and versatility</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Perfect for shirts, dresses, and linings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-th-large text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-center mb-4 text-denim">Twill Fabrics</h3>
+                    <p class="text-gray-600 text-center mb-4">Diagonal weave patterns with enhanced durability</p>
+                    <div class="text-center">
+                        <div class="inline-block spec-badge px-4 py-2 rounded-full text-sm font-medium text-gray-700">
+                            Various constructions | Drill, Gabardine
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Distinct diagonal rib pattern</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Excellent drape and durability</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Ideal for workwear and denim</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-center mb-4 text-denim">Satin Weaves</h3>
+                    <p class="text-gray-600 text-center mb-4">Lustrous finish with smooth surface</p>
+                    <div class="text-center">
+                        <div class="inline-block spec-badge px-4 py-2 rounded-full text-sm font-medium text-gray-700">
+                            Lustrous finish | Sateen, Charmouse
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">High sheen and luxurious feel</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Excellent drape and softness</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Perfect for eveningwear and linings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chess-board text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-center mb-4 text-denim">Jacquard Fabrics</h3>
+                    <p class="text-gray-600 text-center mb-4">Intricate woven patterns and designs</p>
+                    <div class="text-center">
+                        <div class="inline-block spec-badge px-4 py-2 rounded-full text-sm font-medium text-gray-700">
+                            Complex patterns | Custom designs
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Complex woven patterns</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Custom design capabilities</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Premium upholstery and fashion</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bezier-curve text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-center mb-4 text-denim">Denim Collections</h3>
+                    <p class="text-gray-600 text-center mb-4">Classic and innovative denim fabrics</p>
+                    <div class="text-center">
+                        <div class="inline-block spec-badge px-4 py-2 rounded-full text-sm font-medium text-gray-700">
+                            Various weights | 8oz - 14oz
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Raw, washed, and distressed options</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Stretch and non-stretch varieties</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Sustainable denim options</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-expand-arrows-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-center mb-4 text-denim">Technical Textiles</h3>
+                    <p class="text-gray-600 text-center mb-4">Specialty fabrics for industrial applications</p>
+                    <div class="text-center">
+                        <div class="inline-block spec-badge px-4 py-2 rounded-full text-sm font-medium text-gray-700">
+                            Industrial grade | Custom specifications
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Fire retardant fabrics</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Water repellent finishes</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-primary"></i>
+                            <span class="text-sm text-gray-600">Industrial filtration textiles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finished Fabrics -->
+    <section class="py-24 gradient-denim text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                    FINISHING EXCELLENCE
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6">Finished Fabrics Collection</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-300">Ready-to-use fabrics with superior finishing, meeting global quality standards</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="product-card rounded-2xl p-8 reveal">
+                    <div class="w-16 h-16 feature-icon rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-flask text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Enzyme Wash</h3>
+                    <p class="text-gray-300 mb-6">Creates a soft hand feel with natural vintage appearance, ideal for casual and premium denim collections.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Soft, luxurious hand feel</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Natural vintage appearance</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Reduced environmental impact</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card rounded-2xl p-8 reveal">
+                    <div class="w-16 h-16 feature-icon rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-gem text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Mercerized Finish</h3>
+                    <p class="text-gray-300 mb-6">Enhances fabric luster and improves dye uptake, creating vibrant, color-fast textiles.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Enhanced fabric luster</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Improved dye uptake</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Increased strength and durability</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card rounded-2xl p-8 reveal">
+                    <div class="w-16 h-16 feature-icon rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-feather text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Peach Finish</h3>
+                    <p class="text-gray-300 mb-6">Creates a suede-like texture with exceptionally soft touch, perfect for premium loungewear and intimate apparel.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Suede-like soft texture</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Exceptional soft touch</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Luxurious feel and appearance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card rounded-2xl p-8 reveal">
+                    <div class="w-16 h-16 feature-icon rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-tint-slash text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Water Repellent</h3>
+                    <p class="text-gray-300 mb-6">DWR treatment creates performance fabrics ideal for outdoor and technical applications.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Durable Water Repellent treatment</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Performance fabric technology</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-gray-300">Ideal for outdoor and technical wear</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid md:grid-cols-3 gap-6">
+                <div class="text-center reveal">
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-primary mb-2">50+</div>
+                    <p class="text-gray-300">Finishing Treatments</p>
+                </div>
+                <div class="text-center reveal">
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-primary mb-2">ISO 9001</div>
+                    <p class="text-gray-300">Quality Certified</p>
+                </div>
+                <div class="text-center reveal">
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-primary mb-2">24/7</div>
+                    <p class="text-gray-300">Quality Monitoring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+                    TECHNICAL SPECIFICATIONS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-denim">Product Specifications</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-600">Our fabrics meet international standards for quality, durability, and performance</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl overflow-hidden shadow-xl">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-denim text-white">
+                                <th class="py-6 px-6 text-left font-serif font-bold">Parameter</th>
+                                <th class="py-6 px-6 text-left font-serif font-bold">Yarn Range</th>
+                                <th class="py-6 px-6 text-left font-serif font-bold">Fabric Weight</th>
+                                <th class="py-6 px-6 text-left font-serif font-bold">Width Options</th>
+                                <th class="py-6 px-6 text-left font-serif font-bold">Composition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">Combed Cotton</td>
+                                <td class="py-4 px-6">Ne 20–120</td>
+                                <td class="py-4 px-6">60-180 GSM</td>
+                                <td class="py-4 px-6">44" - 62"</td>
+                                <td class="py-4 px-6">100% Cotton</td>
+                            </tr>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">Blended Yarns</td>
+                                <td class="py-4 px-6">PC, CVC, TC</td>
+                                <td class="py-4 px-6">80-220 GSM</td>
+                                <td class="py-4 px-6">44" - 60"</td>
+                                <td class="py-4 px-6">Cotton blends</td>
+                            </tr>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">Plain Weaves</td>
+                                <td class="py-4 px-6">Various</td>
+                                <td class="py-4 px-6">60-300 GSM</td>
+                                <td class="py-4 px-6">48" - 120"</td>
+                                <td class="py-4 px-6">Cotton, Polyester</td>
+                            </tr>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">Twill Fabrics</td>
+                                <td class="py-4 px-6">Various</td>
+                                <td class="py-4 px-6">150-400 GSM</td>
+                                <td class="py-4 px-6">58" - 64"</td>
+                                <td class="py-4 px-6">Cotton, Blends</td>
+                            </tr>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">Denim Collections</td>
+                                <td class="py-4 px-6">Various</td>
+                                <td class="py-4 px-6">8oz - 14oz</td>
+                                <td class="py-4 px-6">58" - 64"</td>
+                                <td class="py-4 px-6">Cotton, Stretch</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-6 font-semibold">Technical Textiles</td>
+                                <td class="py-4 px-6">Custom</td>
+                                <td class="py-4 px-6">200-600 GSM</td>
+                                <td class="py-4 px-6">Custom</td>
+                                <td class="py-4 px-6">Specialty fibers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-24 bg-gradient-to-br from-denim via-denim to-gray-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <div class="reveal mb-12">
+                <span class="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                    REQUEST SAMPLES
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif mb-8">Experience Our Fabric Quality</h2>
+                <p class="text-xl mb-16 max-w-3xl mx-auto text-gray-300">
+                    Request samples of our premium fabrics and discover how our product range can enhance your collections 
+                    and meet your specific requirements.
+                </p>
+            </div>
+            <div class="space-x-4 reveal">
+                <a href="contact.html" class="inline-block gradient-gold text-white px-10 py-5 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 uppercase tracking-wider hover:-translate-y-1">
+                    Request Samples <i class="fas fa-box-open ml-3"></i>
+                </a>
+                <a href="capabilities.html" class="inline-block border-2 border-white text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-white hover:text-denim transition-all duration-300 uppercase tracking-wider hover:-translate-y-1">
+                    View Capabilities <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-denim text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <a href="index.html" class="text-2xl font-serif font-bold flex items-center gap-2 mb-6">
+                        <i class="fas fa-industry text-primary"></i>
+                        <span>Sitaram Denim</span>
+                    </a>
+                    <p class="text-gray-300 mb-6">Weaving excellence since 1978, serving global brands with premium denim fabrics.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-primary">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> About Us</a></li>
+                        <li><a href="capabilities.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Capabilities</a></li>
+                        <li><a href="products.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Products</a></li>
+                        <li><a href="sustainability.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Sustainability</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-primary">Investor Relations</h4>
+                    <ul class="space-y-3">
+                        <li><a href="investors.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Financial Reports</a></li>
+                        <li><a href="investors.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Corporate Governance</a></li>
+                        <li><a href="investors.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Policies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-primary">Contact Info</h4>
+                    <div class="space-y-4">
+                        <p class="text-gray-300 flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <span>Industrial Area, Bhilwara<br>Rajasthan 311001, India</span>
+                        </p>
+                        <p class="text-gray-300 flex items-center gap-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span>+91 22 1234 5678</span>
+                        </p>
+                        <p class="text-gray-300 flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span>info@sitaramdenim.com</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Sitaram Denim India Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        function revealElements() {
+            const elements = document.querySelectorAll('.reveal');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('scroll', revealElements);
+        window.addEventListener('load', function() {
+            revealElements();
+
+            // Initialize product card animations
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.2}s`;
+            });
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            productCards.forEach(card => cardObserver.observe(card));
+
+            // Feature icon animations
+            const featureIcons = document.querySelectorAll('.feature-icon');
+            featureIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'scale(1.05) rotate(5deg)';
+                });
+                icon.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'scale(1) rotate(0)';
+                });
+            });
+
+            // Table row hover effect
+            const tableRows = document.querySelectorAll('tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    row.style.backgroundColor = '#f9fafb';
+                });
+                row.addEventListener('mouseleave', () => {
+                    row.style.backgroundColor = '';
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(8px)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

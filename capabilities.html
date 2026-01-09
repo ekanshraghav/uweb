@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capabilities - Sitaram Denim India Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'denim': '#050A18',
+                        'navy': '#050A18',
+                        'gold': '#D4AF37',
+                        'bronze': '#CD7F32',
+                        'primary': '#BAFF39',
+                        'secondary': '#6E6E6E',
+                        'pastel-purple': '#C5ADC5',
+                        'light-blue': '#B2B5E0'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .gradient-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #CD7F32 100%);
+        }
+        .gradient-denim {
+            background: linear-gradient(135deg, #050A18 0%, #1e3a5c 100%);
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #BAFF39 0%, #9ED322 100%);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.active {
+            max-height: 400px;
+        }
+        .capability-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .capability-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(186, 255, 57, 0.1), rgba(158, 211, 34, 0.2));
+            border-left: 4px solid #BAFF39;
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, rgba(201, 168, 88, 0.1), rgba(184, 148, 70, 0.2));
+        }
+        .feature-icon:hover {
+            background: linear-gradient(135deg, #D4AF37, #CD7F32);
+            transform: scale(1.05);
+        }
+        .tech-badge {
+            background: rgba(186, 255, 57, 0.15);
+            border: 1px solid rgba(186, 255, 57, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/98 backdrop-blur-md z-50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-serif font-bold text-denim flex items-center gap-2">
+                        <i class="fas fa-industry text-primary"></i>
+                        <span>Sitaram Denim</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="capabilities.html" class="text-denim font-semibold hover:text-primary transition-colors duration-300 relative group">
+                        Capabilities
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="products.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Products
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="sustainability.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Sustainability
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="investors.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Investors
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors duration-300 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-denim p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg rounded-b-lg">
+                <div class="py-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Home</a>
+                    <a href="about.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">About</a>
+                    <a href="capabilities.html" class="block px-4 py-3 text-denim font-semibold hover:bg-gray-50 transition-colors border-l-4 border-primary">Capabilities</a>
+                    <a href="products.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Products</a>
+                    <a href="sustainability.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Sustainability</a>
+                    <a href="investors.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Investors</a>
+                    <a href="contact.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-primary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="parallax min-h-screen flex items-center justify-center relative"
+             style="background-image: linear-gradient(rgba(5,10,24,0.85), rgba(30,58,95,0.7)), 
+                    url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+        <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-10"></div>
+        <div class="text-center text-white max-w-5xl mx-auto px-4 relative z-10">
+            <div class="reveal mb-6">
+                <span class="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                    MANUFACTURING EXCELLENCE
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 reveal leading-tight">
+                Vertically Integrated<br>
+                <span class="text-primary">Capabilities</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 reveal text-gray-200">From yarn to finished fabric - complete control for premium quality</p>
+            <p class="text-lg mb-12 max-w-2xl mx-auto reveal text-gray-300">
+                Experience our end-to-end production ecosystem powered by cutting-edge technology, 
+                sustainable practices, and four decades of textile expertise.
+            </p>
+        </div>
+    </section>
+
+    <!-- Statistics Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-industry text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-denim mb-2">50M+</div>
+                    <p class="text-gray-600">Meters Annual Production</p>
+                </div>
+                <div class="text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-denim mb-2">100%</div>
+                    <p class="text-gray-600">Vertical Integration</p>
+                </div>
+                <div class="text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-denim mb-2">24/7</div>
+                    <p class="text-gray-600">Continuous Operations</p>
+                </div>
+                <div class="text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-denim mb-2">ISO 9001</div>
+                    <p class="text-gray-600">Quality Certified</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Capabilities -->
+    <section class="py-24 gradient-denim text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                    OUR CORE CAPABILITIES
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6">End-to-End Manufacturing Excellence</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-300">Complete vertical integration ensures quality control at every production stage</p>
+            </div>
+            
+            <div class="space-y-16">
+                <!-- Weaving & Knitting Capability -->
+                <div class="capability-card rounded-2xl p-8 md:p-12 reveal">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="md:col-span-1">
+                            <div class="relative rounded-xl overflow-hidden h-80">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                     alt="Weaving & Knitting" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-denim/50 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full backdrop-blur-sm">
+                                        12M Meters Monthly
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-1">
+                            <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6 flex items-center gap-3">
+                                <div class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-warehouse text-primary text-xl"></i>
+                                </div>
+                                Weaving & Knitting
+                            </h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                                State-of-the-art looms and knitting machines producing 12 million meters of fabric monthly. From basic weaves to complex jacquards, we handle it all with precision and efficiency.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="tech-badge rounded-lg p-4">
+                                    <div class="font-bold text-primary mb-1">300+</div>
+                                    <div class="text-sm text-gray-300">High-Speed Looms</div>
+                                </div>
+                                <div class="tech-badge rounded-lg p-4">
+                                    <div class="font-bold text-primary mb-1">Air-Jet & Rapier</div>
+                                    <div class="text-sm text-gray-300">Advanced Technologies</div>
+                                </div>
+                                <div class="tech-badge rounded-lg p-4">
+                                    <div class="font-bold text-primary mb-1">Complex Patterns</div>
+                                    <div class="text-sm text-gray-300">Jacquard Weaving</div>
+                                </div>
+                                <div class="tech-badge rounded-lg p-4">
+                                    <div class="font-bold text-primary mb-1">Automated</div>
+                                    <div class="text-sm text-gray-300">Quality Monitoring</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dyeing & Processing Capability -->
+                <div class="capability-card rounded-2xl p-8 md:p-12 reveal">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="md:col-span-1 order-2 md:order-1">
+                            <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6 flex items-center gap-3">
+                                <div class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-palette text-primary text-xl"></i>
+                                </div>
+                                Dyeing & Processing
+                            </h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                                Advanced dyeing facilities with computerized color matching ensuring perfect shade consistency across all batches with minimal environmental impact. Our sustainable practices set new industry standards.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-primary"></i>
+                                    <span class="text-gray-300">Computerized Color Matching</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-primary"></i>
+                                    <span class="text-gray-300">Zero Liquid Discharge System</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-primary"></i>
+                                    <span class="text-gray-300">Low-Liquor Ratio Dyeing</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-primary"></i>
+                                    <span class="text-gray-300">Eco-Friendly Dyes & Chemicals</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-1 order-1 md:order-2">
+                            <div class="relative rounded-xl overflow-hidden h-80">
+                                <img src="https://images.unsplash.com/photo-1574258495973-3f1b78c0b44b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                     alt="Dyeing & Processing" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-denim/50 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full backdrop-blur-sm">
+                                        Environmentally Responsible
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Control Testing -->
+                <div class="capability-card rounded-2xl p-8 md:p-12 reveal">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="md:col-span-1">
+                            <div class="relative rounded-xl overflow-hidden h-80">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                     alt="Quality Control Testing" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-denim/50 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full backdrop-blur-sm">
+                                        World-Class Testing
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-1">
+                            <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6 flex items-center gap-3">
+                                <div class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-microscope text-primary text-xl"></i>
+                                </div>
+                                Quality Control Testing
+                            </h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                                In-house laboratory equipped with world-class testing instruments ensuring every fabric meets international quality standards and specifications.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                                    <div class="font-bold text-white mb-1">Physical Testing</div>
+                                    <div class="text-sm text-gray-300">Strength & Durability</div>
+                                </div>
+                                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                                    <div class="font-bold text-white mb-1">Chemical Analysis</div>
+                                    <div class="text-sm text-gray-300">Composition Testing</div>
+                                </div>
+                                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                                    <div class="font-bold text-white mb-1">Colorfastness</div>
+                                    <div class="text-sm text-gray-300">Light & Wash Fastness</div>
+                                </div>
+                                <div class="bg-white/5 rounded-lg p-4 border border-white/10">
+                                    <div class="font-bold text-white mb-1">Dimensional Stability</div>
+                                    <div class="text-sm text-gray-300">Shrinkage Control</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Garmenting -->
+                <div class="capability-card rounded-2xl p-8 md:p-12 reveal">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="md:col-span-1 order-2 md:order-1">
+                            <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6 flex items-center gap-3">
+                                <div class="w-12 h-12 feature-icon rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-tshirt text-primary text-xl"></i>
+                                </div>
+                                Garmenting
+                            </h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                                Complete garment manufacturing capabilities with precision cutting, expert stitching, and flawless finishing producing 3000+ units per hour. From design to delivery, we ensure perfection.
+                            </p>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-cut text-primary"></i>
+                                    <span class="text-gray-300">Automated Cutting Systems</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-seedling text-primary"></i>
+                                    <span class="text-gray-300">Multi-Needle Stitching Technology</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <span class="text-gray-300">Quality Finishing & Inspection</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-box text-primary"></i>
+                                    <span class="text-gray-300">Custom Packaging Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-1 order-1 md:order-2">
+                            <div class="relative rounded-xl overflow-hidden h-80">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                     alt="Garmenting" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-denim/50 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full backdrop-blur-sm">
+                                        3000+ Units/Hour
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Technology -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+                    TECHNOLOGY & INNOVATION
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-denim">Industry 4.0 Integration</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-600">Leveraging cutting-edge technologies for precision manufacturing and sustainable production</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-wifi text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-center mb-4 text-denim">IoT Integration</h3>
+                    <p class="text-gray-600 text-center">Connected manufacturing ecosystem with real-time monitoring and predictive maintenance for optimal efficiency.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-center mb-4 text-denim">AI & ML</h3>
+                    <p class="text-gray-600 text-center">Intelligent quality control and process optimization using artificial intelligence and machine learning algorithms.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-center mb-4 text-denim">Automation</h3>
+                    <p class="text-gray-600 text-center">Automated material handling and robotic process control for enhanced precision and productivity.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cloud text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-center mb-4 text-denim">Cloud Analytics</h3>
+                    <p class="text-gray-600 text-center">Data-driven insights for production planning, performance optimization, and predictive analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality & R&D -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+                    QUALITY & RESEARCH
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-denim">Advanced Testing & Development</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-600">State-of-the-art facilities ensuring excellence and driving textile innovation</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="stat-card p-8 rounded-2xl reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-microscope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">Physical Testing Lab</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive testing for tensile strength, tear strength, abrasion resistance, and dimensional stability using advanced equipment.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Tensile Testing Machines</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Abrasion Testers</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Dimensional Stability Testers</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card p-8 rounded-2xl reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">Color Science Lab</h3>
+                    <p class="text-gray-600 mb-4">Precision color matching and fastness testing using spectrophotometers and specialized lighting conditions.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Spectrophotometers</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Color Matching Software</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Light Box Evaluation</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card p-8 rounded-2xl reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-flask text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">Chemical Analysis</h3>
+                    <p class="text-gray-600 mb-4">Testing for harmful substances, pH levels, formaldehyde content, and compliance with global safety standards.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>pH & Chemical Testing</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Formaldehyde Analysis</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Azo Dye Testing</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card p-8 rounded-2xl reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-vial text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">R&D Center</h3>
+                    <p class="text-gray-600 mb-4">Dedicated research facility for developing new fabrics, finishes, and sustainable manufacturing processes.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>New Product Development</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Process Optimization</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Sustainable Innovation</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card p-8 rounded-2xl reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-certificate text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">Certification Lab</h3>
+                    <p class="text-gray-600 mb-4">Internal testing facility ensuring compliance with GOTS, OEKO-TEX, and other international certifications.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>GOTS Certification</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>OEKO-TEX Standard</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>ISO Standards</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card p-8 rounded-2xl reveal">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">Digital QC</h3>
+                    <p class="text-gray-600 mb-4">Computerized quality monitoring systems with real-time data analysis and automated defect detection.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>AI-Powered Inspection</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Real-time Analytics</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500 mt-2">
+                        <i class="fas fa-check text-primary mr-2"></i>
+                        <span>Automated Reporting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+                    GLOBAL CERTIFICATIONS
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif text-center mb-6 text-denim">Internationally Recognized Standards</h2>
+                <p class="text-xl max-w-3xl mx-auto text-gray-600">Our commitment to quality and sustainability is validated by global certifications</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">ISO 9001:2015</h3>
+                    <p class="text-gray-600">Quality Management System certification ensuring consistent quality processes.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-leaf text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">GOTS Certified</h3>
+                    <p class="text-gray-600">Global Organic Textile Standard for organic fiber production and processing.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">OEKO-TEX</h3>
+                    <p class="text-gray-600">Standard 100 certification ensuring products are free from harmful substances.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift border border-gray-100 text-center reveal">
+                    <div class="w-20 h-20 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-recycle text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 text-denim">OEKO-TEX STeP</h3>
+                    <p class="text-gray-600">Sustainable Textile Production certification for environmentally friendly processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-24 bg-gradient-to-br from-denim via-denim to-gray-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://id-preview--adcd8cf8-25b7-4f98-bf44-dd41b35a3df9.lovable.app/assets/woven-texture-BrUg2CSc.jpg')] opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <div class="reveal mb-12">
+                <span class="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4 backdrop-blur-sm">
+                    EXPERIENCE EXCELLENCE
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif mb-8">Partner With Our Manufacturing Excellence</h2>
+                <p class="text-xl mb-16 max-w-3xl mx-auto text-gray-300">
+                    Join global brands that trust Sitaram Denim for their premium textile requirements. 
+                    Experience the difference that complete vertical integration and four decades of expertise makes.
+                </p>
+            </div>
+            <div class="space-x-4 reveal">
+                <a href="contact.html" class="inline-block gradient-gold text-white px-10 py-5 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 uppercase tracking-wider hover:-translate-y-1">
+                    Request Samples <i class="fas fa-box-open ml-3"></i>
+                </a>
+                <a href="products.html" class="inline-block border-2 border-white text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-white hover:text-denim transition-all duration-300 uppercase tracking-wider hover:-translate-y-1">
+                    View Products <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-denim text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <a href="index.html" class="text-2xl font-serif font-bold flex items-center gap-2 mb-6">
+                        <i class="fas fa-industry text-primary"></i>
+                        <span>Sitaram Denim</span>
+                    </a>
+                    <p class="text-gray-300 mb-6">Weaving excellence since 1978, serving global brands with premium denim fabrics.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-primary">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> About Us</a></li>
+                        <li><a href="capabilities.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Capabilities</a></li>
+                        <li><a href="products.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Products</a></li>
+                        <li><a href="sustainability.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Sustainability</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-primary">Investor Relations</h4>
+                    <ul class="space-y-3">
+                        <li><a href="investors.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Financial Reports</a></li>
+                        <li><a href="investors.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Corporate Governance</a></li>
+                        <li><a href="investors.html" class="text-gray-300 hover:text-primary transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Policies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-primary">Contact Info</h4>
+                    <div class="space-y-4">
+                        <p class="text-gray-300 flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <span>Industrial Area, Bhilwara<br>Rajasthan 311001, India</span>
+                        </p>
+                        <p class="text-gray-300 flex items-center gap-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span>+91 22 1234 5678</span>
+                        </p>
+                        <p class="text-gray-300 flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span>info@sitaramdenim.com</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Sitaram Denim India Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        function revealElements() {
+            const elements = document.querySelectorAll('.reveal');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('scroll', revealElements);
+        window.addEventListener('load', function() {
+            revealElements();
+
+            // Initialize capability card animations
+            const capabilityCards = document.querySelectorAll('.capability-card');
+            capabilityCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.2}s`;
+            });
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            capabilityCards.forEach(card => cardObserver.observe(card));
+
+            // Feature icon animations
+            const featureIcons = document.querySelectorAll('.feature-icon');
+            featureIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'scale(1.05) rotate(5deg)';
+                });
+                icon.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'scale(1) rotate(0)';
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(8px)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
