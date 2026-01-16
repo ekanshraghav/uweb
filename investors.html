@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Investor Relations - Sitaram India Limited</title>
-  <meta name="description" content="Access financial information, corporate governance details, and investor resources for Sitaram India Limited.">
-  <link rel="canonical" href="https://sitaramindia.com/investors.html">
+  <title>Sitaram Denims India Limited | Premium Textile Manufacturing Since 2017</title>
+  <meta name="description" content="Leading manufacturer of PV, Cotton, Denim & value-added fabrics. Vertically integrated textile company with brands Sitaram, Stardom, and Swiss Arrow. Since 2017.">
+  <link rel="canonical" href="https://sitaramindia.com">
   
   <!-- Open Graph Tags -->
-  <meta property="og:title" content="Investor Relations - Sitaram India Limited">
-  <meta property="og:description" content="Financial information and investor resources">
+  <meta property="og:title" content="Sitaram India Limited | Premium Textile Manufacturing">
+  <meta property="og:description" content="Manufacturing excellence since 2017 | Vertically integrated textile company | Brands: Sitaram, Stardom, Swiss Arrow">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sitaramindia.com/investors.html">
+  <meta property="og:url" content="https://sitaramindia.com">
+  <meta property="og:image" content="https://sitaramindia.com/images/og-image.jpg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Investor Relations - Sitaram India Limited">
+  <meta name="twitter:title" content="Sitaram India Limited">
+  <meta name="twitter:description" content="Premium textile manufacturing with sustainable practices since 2017">
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -138,28 +140,28 @@
     }
     
     /* ✅ Header inner container - compact padding on scroll */
-    .premium-header .header-inner {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .premium-header.scrolled .header-inner {
-      padding-top: 0.625rem;
-      padding-bottom: 0.625rem;
-    }
-    
-    @media (min-width: 1024px) {
-      .premium-header .header-inner {
-        padding-top: 1.25rem;
-        padding-bottom: 1.25rem;
-      }
-      
-      .premium-header.scrolled .header-inner {
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-      }
-    }
+.premium-header .header-inner {
+  padding-top: 0.75rem;    /* Reduced from 1rem */
+  padding-bottom: 0.75rem; /* Reduced from 1rem */
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-header.scrolled .header-inner {
+  padding-top: 0.5rem;     /* Reduced from 0.625rem */
+  padding-bottom: 0.5rem;  /* Reduced from 0.625rem */
+}
+
+@media (min-width: 1024px) {
+  .premium-header .header-inner {
+    padding-top: 0.75rem;     /* Reduced from 1.25rem */
+    padding-bottom: 0.75rem;  /* Reduced from 1.25rem */
+  }
+  
+  .premium-header.scrolled .header-inner {
+    padding-top: 0.625rem; /* Reduced from 0.75rem */
+    padding-bottom: 0.625rem; /* Reduced from 0.75rem */
+  }
+}
     
     /* ✅ Logo scaling on scroll */
     .premium-header .logo-container img {
@@ -737,15 +739,27 @@
       }
     }
     
-    /* Compact hero - Adjusted for new header height */
+    /* FIXED: Compact hero - Reduced top space and improved CTA spacing */
     .compact-hero {
-      min-height: 85vh;
-      padding-top: 6.5rem; /* Adjusted for new header height */
+      min-height: 75vh; /* Reduced from 85vh */
+      padding-top: 4.5rem; /* Reduced from 6.5rem */
+      padding-bottom: 2rem; /* Added bottom padding */
+      display: flex;
+      align-items: center;
     }
     
     @media (max-width: 1024px) {
       .compact-hero {
-        padding-top: 5.5rem;
+        padding-top: 4rem; /* Reduced from 5.5rem */
+        min-height: 70vh;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .compact-hero {
+        padding-top: 3.5rem;
+        min-height: 65vh;
+        padding-bottom: 1.5rem;
       }
     }
     
@@ -824,6 +838,41 @@
       gap: 0.75rem;
     }
     
+    /* FIXED: Hero content adjustments for better spacing */
+    .hero-content-container {
+      max-width: 48rem; /* Reduced from default */
+      margin: 0 auto;
+    }
+    
+    /* FIXED: Better CTA spacing to prevent boundary issues */
+    .hero-cta-container {
+      margin-top: 2rem !important; /* Reduced from 3.5rem */
+      margin-bottom: 1rem;
+    }
+    
+    .hero-cta-button {
+      padding: 0.75rem 1.5rem !important; /* Reduced padding */
+      font-size: 0.9375rem !important; /* Slightly smaller font */
+      margin: 0.25rem;
+    }
+    
+    /* FIXED: Hero heading adjustments */
+    .hero-heading {
+      margin-bottom: 1.5rem !important; /* Reduced from 3rem */
+      line-height: 1.2;
+    }
+    
+    /* FIXED: Hero subheading adjustments */
+    .hero-subheading {
+      margin-bottom: 1.5rem !important; /* Reduced from 2.5rem */
+      line-height: 1.5;
+    }
+    
+    /* FIXED: Trust badges adjustments */
+    .hero-trust-badges {
+      margin-bottom: 1.5rem !important; /* Reduced from 2rem */
+    }
+    
     /* Accessibility */
     @media (prefers-reduced-motion: reduce) {
       .animate-fade-in,
@@ -899,7 +948,7 @@
           <div class="logo-container">
             <!-- Company Logo -->
             <img src="/images/company_logo.jpeg" 
-                 alt="Sitaram India Limited Logo" 
+                 alt="Sitaram Denims India Limited Logo" 
                  class="h-14 w-14 lg:h-16 lg:w-16 object-contain"
                  loading="eager"
                  id="header-logo">
@@ -909,7 +958,7 @@
               <span class="company-name-text">
                 SITARAM DENIMS INDIA LIMITED
               </span>
-              <span class="company-name-subtitle">NSE Emerge Listed • Since 1987</span>
+              <span class="company-name-subtitle">NSE Emerge Listed • Since 2017</span>
               <span class="nav-counter"></span>
             </a>
           </div>
@@ -918,7 +967,7 @@
         <!-- Desktop Navigation - Enhanced -->
         <nav class="hidden xl:flex items-center space-x-12 ml-auto" aria-label="Main navigation">
           <!-- Navigation Items -->
-          <a href="/" class="nav-item nav-underline-effect" data-nav="home">
+          <a href="/" class="nav-item nav-underline-effect active" data-nav="home">
             Home
             <span class="nav-counter"></span>
           </a>
@@ -937,7 +986,7 @@
           
           <!-- Enhanced Investors Dropdown -->
           <div class="investor-dropdown">
-            <a href="/investors.html" class="nav-item nav-underline-effect active flex items-center" data-nav="investors">
+            <a href="/investors.html" class="nav-item nav-underline-effect flex items-center" data-nav="investors">
               Investors
               <i class="fas fa-chevron-down ml-2 text-xs opacity-70 transition-transform duration-300"></i>
               <span class="nav-counter"></span>
@@ -1035,7 +1084,7 @@
     <div class="premium-mobile-menu-header">
       <div>
         <div class="text-sm font-semibold opacity-90">SITARAM DENIMS INDIA LIMITED</div>
-        <div class="text-xs opacity-75 mt-1">NSE Emerge Listed • Since 1987</div>
+        <div class="text-xs opacity-75 mt-1">NSE Emerge Listed • Since 2017</div>
       </div>
       <button id="close-mobile-menu" 
               class="p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
@@ -1045,41 +1094,77 @@
     </div>
     
     <div class="premium-mobile-menu-content">
-      <a href="/" class="mobile-nav-item" data-nav="home">
-        Home
-        <i class="fas fa-chevron-right text-xs opacity-50"></i>
+      <a href="/" class="mobile-nav-item active" data-nav="home">
+        <span>Home</span>
+        <i class="fas fa-home opacity-60"></i>
       </a>
       <a href="/about.html" class="mobile-nav-item" data-nav="about">
-        About
-        <i class="fas fa-chevron-right text-xs opacity-50"></i>
+        <span>About</span>
+        <i class="fas fa-info-circle opacity-60"></i>
       </a>
       <a href="/capabilities.html" class="mobile-nav-item" data-nav="capabilities">
-        Capabilities
-        <i class="fas fa-chevron-right text-xs opacity-50"></i>
+        <span>Capabilities</span>
+        <i class="fas fa-industry opacity-60"></i>
       </a>
       <a href="/products.html" class="mobile-nav-item" data-nav="products">
-        Products
-        <i class="fas fa-chevron-right text-xs opacity-50"></i>
+        <span>Products</span>
+        <i class="fas fa-tshirt opacity-60"></i>
       </a>
-      <a href="/investors.html" class="mobile-nav-item active" data-nav="investors">
-        Investors
-        <i class="fas fa-chevron-right text-xs opacity-50"></i>
+      <a href="/investors.html" class="mobile-nav-item" data-nav="investors">
+        <span>Investors</span>
+        <i class="fas fa-chart-line opacity-60"></i>
       </a>
       
+      <!-- Quick Links for Mobile -->
       <div class="mobile-quick-links">
-        <h4>Investor Resources</h4>
+        <h4>Quick Investor Links</h4>
         <div class="mobile-quick-links-grid">
           <a href="/investors.html" class="mobile-quick-link">Financial Results</a>
           <a href="/investors.html" class="mobile-quick-link">Annual Report</a>
+          <a href="/investors.html" class="mobile-quick-link">Shareholding Pattern</a>
           <a href="/investors.html" class="mobile-quick-link">Governance</a>
-          <a href="/investors.html" class="mobile-quick-link">Board</a>
         </div>
       </div>
       
-      <a href="/contact.html" class="mobile-nav-item" data-nav="contact">
-        Contact
-        <i class="fas fa-chevron-right text-xs opacity-50"></i>
-      </a>
+      <!-- Mobile Contact Button -->
+      <div class="mt-8 pt-6 border-t border-border-light">
+        <a href="/contact.html" class="premium-contact-btn w-full flex justify-center items-center mb-6">
+          Contact Our Team
+        </a>
+        
+        <!-- Enhanced Mobile Contact Info -->
+        <div class="space-y-4 text-sm">
+          <div class="flex items-center p-3 bg-bubbles/50 rounded-lg">
+            <div class="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center mr-3">
+              <i class="fas fa-phone text-accent-blue"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-text-primary">Phone</div>
+              <div class="text-text-secondary">+91-1482-260385</div>
+            </div>
+          </div>
+          
+          <div class="flex items-center p-3 bg-bubbles/50 rounded-lg">
+            <div class="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center mr-3">
+              <i class="fas fa-envelope text-accent-blue"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-text-primary">Email</div>
+              <div class="text-text-secondary">info@sitaramdenims.com</div>
+            </div>
+          </div>
+          
+          <div class="flex items-center p-3 bg-bubbles/50 rounded-lg">
+            <div class="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center mr-3">
+              <i class="fas fa-map-marker-alt text-accent-blue"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-text-primary">Headquarters</div>
+              <div class="text-text-secondary text-xs">Plot No. 1 & 2, Kishangarh, Ajmer, Rajasthan 305801</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1548,7 +1633,7 @@
 
   </main>
 
-  <!-- Footer -->
+ <!-- Footer -->
 <footer class="bg-gradient-to-br from-dark-section via-dark-section-light to-dark-section text-white" role="contentinfo">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <!-- Main Footer Content -->
@@ -1556,10 +1641,10 @@
             <!-- Brand Column -->
             <div class="lg:col-span-1">
                 <a href="/" class="text-3xl font-bold inline-block mb-6">
-                    <span class="text-accent-blue">Sitaram</span> India
+                    <span class="text-accent-blue">Sitaram</span> Denims
                 </a>
                 <p class="text-gray-300 mb-6 text-sm">
-                    Manufacturing excellence since 1987. Vertically integrated textile company with premium brands Sitaram, Stardom, and Swiss Arrow.
+                    Manufacturing excellence since 2017. Textile company with premium brands Sitaram, Stardom, and Swiss Arrow.
                 </p>
                 <div class="flex space-x-3">
                     <a href="#" class="w-10 h-10 bg-dark-section-light rounded-full flex items-center justify-center hover:bg-accent-blue transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-accent-blue" aria-label="LinkedIn">
@@ -1644,7 +1729,7 @@
                         </div>
                         <div>
                             <p class="text-gray-300 text-sm font-medium">Email</p>
-                            <p class="text-gray-400 text-sm mt-1">info@sitaramindia.com</p>
+                            <p class="text-gray-400 text-sm mt-1">info@sitaramdenims.com</p>
                         </div>
                     </div>
                 </div>
@@ -1682,7 +1767,7 @@
         <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
                 <p class="text-gray-400 text-sm">
-                    © 1987–2024 Sitaram India Limited. All rights reserved.
+                    © 2017–2024 Sitaram Denims India Limited. All rights reserved.
                 </p>
                 <p class="text-gray-500 text-xs mt-1">CIN: U24304RJ1987PLC004101 | GST: 08AAECS5776L1Z9</p>
             </div>
@@ -1699,107 +1784,147 @@
     </div>
 </footer>
 
-<!-- JavaScript -->
+<!-- JavaScript for Newsletter Form -->
 <script>
-  // Mobile menu toggle with improved accessibility
-  const premiumMobileMenuBtn = document.getElementById('premium-mobile-menu-btn');
-  const premiumMobileMenu = document.getElementById('premium-mobile-menu');
-  const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
-  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-  
-  // Open menu
-  premiumMobileMenuBtn?.addEventListener('click', function() {
-    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', !isExpanded);
-    premiumMobileMenu.classList.toggle('active');
-    mobileMenuOverlay.classList.toggle('active');
-  });
-
-  // Close menu via close button
-  closeMobileMenuBtn?.addEventListener('click', function() {
-    premiumMobileMenuBtn.setAttribute('aria-expanded', 'false');
-    premiumMobileMenu.classList.remove('active');
-    mobileMenuOverlay.classList.remove('active');
-  });
-
-  // Close menu via overlay
-  mobileMenuOverlay?.addEventListener('click', function() {
-    premiumMobileMenuBtn.setAttribute('aria-expanded', 'false');
-    premiumMobileMenu.classList.remove('active');
-    mobileMenuOverlay.classList.remove('active');
-  });
-
-  // Close mobile menu when clicking on a link
-  document.querySelectorAll('.premium-mobile-menu a').forEach(link => {
-    link.addEventListener('click', function() {
-      premiumMobileMenuBtn.setAttribute('aria-expanded', 'false');
-      premiumMobileMenu.classList.remove('active');
-      mobileMenuOverlay.classList.remove('active');
+    // Newsletter form submission
+    document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        
+        // Here you would typically send to your backend
+        console.log('Newsletter subscription:', email);
+        
+        // Show success message (you can replace this with a toast notification)
+        alert('Thank you for subscribing to our newsletter!');
+        this.reset();
     });
-  });
+</script>
 
-  // Header scroll effect
-  const header = document.getElementById('main-header');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-
-  // Scroll reveal animation
-  function revealElements() {
-    const elements = document.querySelectorAll('.reveal');
-    elements.forEach(element => {
-      const elementTop = element.getBoundingClientRect().top;
-      const elementVisible = 150;
-      
-      if (elementTop < window.innerHeight - elementVisible) {
-        element.classList.add('active');
-      }
-    });
-  }
-
-  // Counter animation
-  function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      const count = parseInt(counter.innerText);
-      const increment = target / 20;
-      
-      if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(() => animateCounters(), 50);
-      } else {
-        counter.innerText = target + "+";
-      }
-    });
-  }
-
-  // Initialize animations
-  window.addEventListener('scroll', revealElements);
-  window.addEventListener('load', function() {
-    revealElements();
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle with improved accessibility
+    const premiumMobileMenuBtn = document.getElementById('premium-mobile-menu-btn');
+    const premiumMobileMenu = document.getElementById('premium-mobile-menu');
     
-    // Start counter animation when stats section is visible
-    const statsSection = document.querySelector('.bg-bubbles-dark');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            animateCounters();
-          }, 300);
-          observer.unobserve(entry.target);
+    premiumMobileMenuBtn.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      premiumMobileMenu.classList.toggle('active');
+      
+      // Toggle icon
+      const icon = this.querySelector('i');
+      if (premiumMobileMenu.classList.contains('active')) {
+        icon.className = 'fas fa-times text-xl';
+      } else {
+        icon.className = 'fas fa-bars text-xl';
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!premiumMobileMenu.contains(event.target) && !premiumMobileMenuBtn.contains(event.target) && premiumMobileMenu.classList.contains('active')) {
+        premiumMobileMenu.classList.remove('active');
+        premiumMobileMenuBtn.setAttribute('aria-expanded', 'false');
+        premiumMobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+      }
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll reveal animation
+    function revealElements() {
+      const elements = document.querySelectorAll('.reveal');
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('active');
         }
       });
-    }, { threshold: 0.3 });
-    
-    if (statsSection) {
-      observer.observe(statsSection);
     }
-  });
-</script>
+
+    // Counter animation with plus sign
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const count = parseInt(counter.innerText);
+        const increment = target / 20;
+        
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(() => animateCounters(), 50);
+        } else {
+          counter.innerText = target + "+";
+        }
+      });
+    }
+
+    // Pause logo scroll on hover/focus for accessibility
+    const logoScroll = document.querySelector('.animate-scroll');
+    if (logoScroll) {
+      const pauseAnimation = () => logoScroll.style.animationPlayState = 'paused';
+      const resumeAnimation = () => logoScroll.style.animationPlayState = 'running';
+      
+      logoScroll.addEventListener('mouseenter', pauseAnimation);
+      logoScroll.addEventListener('mouseleave', resumeAnimation);
+      logoScroll.addEventListener('focusin', pauseAnimation);
+      logoScroll.addEventListener('focusout', resumeAnimation);
+    }
+
+    // Initialize animations when page loads
+    window.addEventListener('scroll', revealElements);
+    window.addEventListener('load', function() {
+      revealElements();
+      
+      // Start counter animation when stats section is visible
+      const statsSection = document.querySelector('.bg-bubbles-dark');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              animateCounters();
+            }, 300);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+
+    // Respect prefers-reduced-motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+      const animatedElements = document.querySelectorAll('.animate-scroll, .animate-fade-in, .animate-slide-up, .animate-pulse-slow');
+      animatedElements.forEach(el => {
+        el.style.animation = 'none';
+      });
+    }
+  </script>
 </body>
 </html>
